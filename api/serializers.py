@@ -6,7 +6,7 @@ from .models import User, Video
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
-        field = ("email", "password", "username", "id")
+        fields = ("email", "password", "username", "id")
         extra_kwargs = {"password": {"write_only": True, 'min_length': 5}}
 
         def create(self, validated_data):
@@ -17,4 +17,4 @@ class UserSerializer(serializers.ModelSerializer):
 class VideoSerializers(serializers.ModelSerializer):
     class Meta:
         model = Video
-        field = ['id', 'title', 'video', 'thum', 'like', 'dislike']
+        fields = ['id', 'title', 'video', 'thum', 'like', 'dislike']
