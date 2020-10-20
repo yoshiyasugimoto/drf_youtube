@@ -12,3 +12,9 @@ class UserSerializer(serializers.ModelSerializer):
         def create(self, validated_data):
             user = get_user_model().objects.create_user(**validated_data)
             return user
+
+
+class VideoSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Video
+        field = ['id', 'title', 'video', 'thum', 'like', 'dislike']
